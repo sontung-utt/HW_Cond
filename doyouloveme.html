@@ -22,18 +22,7 @@
         height: 30px;
     }
 </style>
-<script>
-    function btnYes() {
-        let img = document.getElementById("image");
-        img.style.display = "block";
-    }
-    function btnNo() {
-        let x = Math.round(Math.random() * window.innerWidth);
-        let y = Math.round(Math.random() * window.innerHeight);
-        document.getElementById("btnNo").style.left = x + "px";
-        document.getElementById("btnNo").style.top = y + "px";
-    }
-</script>
+
 
 <body>
     <h2 style="position:absolute; left:650px; top:300px; color: pink;">DO YOU LOVE ME?</h2>
@@ -44,7 +33,18 @@
             <img src="heart.jpg" id="image" alt="placeholder Image" class="image">
         </center>
     </div>
-
+    <script>
+        function btnYes() {
+            let img = document.getElementById("image");
+            img.style.display = "block";
+        }
+        function btnNo() {
+            let x = Math.round(Math.random() * window.innerWidth);
+            let y = Math.round(Math.random() * window.innerHeight);
+            document.getElementById("btnNo").style.left = x + "px";
+            document.getElementById("btnNo").style.top = y + "px";
+        }
+    </script>
 </body>
 
 </html>
