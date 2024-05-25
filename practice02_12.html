@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>Tính lãi ngân hàng</h4>
+    <label for="prin">Nhập số tiền</label>
+    <input type="number" id="prin" placeholder="Số tiền"><br><br>
+    <label for="month">Nhập số tháng</label>
+    <input type="number" id="month" placeholder="Số tháng"><br><br>
+    <label for="year">Nhập số năm</label>
+    <input type="number" id="year" placeholder="Số năm"><br><br>
+    <button onclick="getMonthrate()">Lãi suất tháng</button>
+    <button onclick="getYearrate()">Lãi suất năm</button>
+    <p id="amount"></p>
+    <script>
+        function getMonthrate() {
+            let prin = parseFloat(document.getElementById("prin").value);
+            let month = parseInt(document.getElementById("month").value);
+            let amount = 0;
+            if (month < 6) {
+                amount = prin * Math.pow(0.5, month);
+            } else if (month < 12) {
+                amount = prin * Math.pow(0.62, month);
+            } else if (month < 18) {
+                amount = prin * Math.pow(0.78, month);
+            } else {
+                amount = prin * Math.pow(0.89, month);
+            }
+            amount =(amount.toFixed(2));
+            document.getElementById("amount").textContent = "Lãi suất sau " + month + " tháng là: " + amount+" VNĐ";
+        }
+        function getYearrate() {
+            let prin = parseFloat(document.getElementById("prin").value);
+            let year = parseInt(document.getElementById("year").value);
+            let amount = 0;
+            let n = 4;
+            let pow = n * year;
+            if (year <= 2) {
+                amount = prin * Math.pow((3.5 / n), pow);
+            } else if (year <=4) {
+                amount = prin * Math.pow((3.67 / n), pow);
+            } else if (year <= 8){
+                amount = prin * Math.pow((3.84 / n), pow);
+            } else {
+                amount = prin * Math.pow((3.96 / n), pow);
+            }
+            amount =(amount.toFixed(2));
+            document.getElementById("amount").textContent = "Lãi suất sau " + year + " năm là: " + amount +" VNĐ";
+        }
+    </script>
+</body>
+
+</html>

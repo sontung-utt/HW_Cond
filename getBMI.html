@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="weight">Nhập cân nặng của bạn (kg)</label>
+    <input type="number" placeholder="Cân nặng" id="weight"> <br><br>
+    <label for="height">Nhập chiều cao của bạn (m)</label>
+    <input type="number" placeholder="Chiều cao" id="height"><br><br>
+    <button onclick="getBMI()">Tính BMI</button>
+    <p id="bmi"></p>
+    <p id="result"></p>
+    <script>
+        function getBMI() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+            let a = weight / (height * height);
+            bmi = parseFloat(a.toFixed(2));
+            document.getElementById("bmi").textContent = "Chỉ số BMI của bạn là: " + bmi;
+            if (bmi < 16) {
+                document.getElementById("result").textContent = "Suy dinh dưỡng - Malnutrition";
+            } else if (bmi < 18.5) {
+                document.getElementById("result").textContent = "Thiếu cân - Underweight";
+            } else if (bmi < 25) {
+                document.getElementById("result").textContent = "Cân đối - Normal";
+            } else if (bmi < 30) {
+                document.getElementById("result").textContent = "Thừa cân - Overweight";
+            } else {
+                document.getElementById("result").textContent = "Béo phì - Obese";
+            }
+        }
+    </script>
+</body>
+
+</html>

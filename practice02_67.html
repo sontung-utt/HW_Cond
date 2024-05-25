@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="num1">Nhập số a </label>
+    <input type="number" id="num1" placeholder="Số a"><br><br>
+    <label for="num2">Nhập số b </label>
+    <input type="number" id="num2" placeholder="Số b"><br><br>
+    <label for="num3">Nhập số c </label>
+    <input type="number" id="num3" placeholder="Số c">
+    <p>Giải phương trình</p>
+    <button onclick="getB1()">Bậc 1</button>
+    <button onclick="getB2()">Bậc 2</button>
+    <p id="result"></p>
+    <script>
+        function getB1() {
+            let a = document.getElementById("num1").value;
+            let b = document.getElementById("num2").value;
+            a = parseFloat(a);
+            b = parseFloat(b);
+            if (a === 0) {
+                if (b === 0) {
+                    document.getElementById("result").textContent = "Phương trình bậc 1 vô số nghiệm";
+                } else {
+                    document.getElementById("result").textContent = "Phương trình bậc 1 vô nghiệm";
+                }
+            } else {
+                let x = -b / a;
+                document.getElementById("result").textContent = "Nghiệm của phương trình bậc 1 là: " + x;
+            }
+        }
+        function getB2() {
+            let a = document.getElementById("num1").value;
+            let b = document.getElementById("num2").value;
+            let c = document.getElementById("num3").value;
+            a = parseFloat(a);
+            b = parseFloat(b);
+            c = parseFloat(c);
+            let delta = b * b - 4 * a * c;
+            if (a === 0) {
+                document.getElementById("result").textContent = "Đây không phải phương trình bậc 2 - a phải khác 0";
+            } else {
+                if (delta < 0) {
+                    document.getElementById("result").textContent = "Phương trình bậc 2 vô nghiệm";
+                } else if (delta === 0) {
+                    let x = -b / (2 * a);
+                    document.getElementById("result").textContent = "Phương trình bậc 2 có nghiệm kép là: " + x;
+                } else {
+                    let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    document.getElementById("result").textContent = "Phương trình bậc 2 có 2 nghiệm là: " + x1 + " và " + x2;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

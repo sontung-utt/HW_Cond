@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="met" placeholder="Nhập chiều dài (m)" onchange="getFeet()">
+    <p id="feet"></p>
+    <script>
+        function getFeet(){
+            let met = document.getElementById("met").value;
+            let feet = met * 3.2808;
+            ft = (feet.toFixed(2));
+            document.getElementById("feet").textContent = "Chiều dài (feet) là: "+ft+" ft";
+        }
+    </script>
+
+</body>
+
+</html>

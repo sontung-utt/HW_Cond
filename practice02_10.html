@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Tính giá điện</h1>
+    <label for="elec">Nhập số điện tiêu thụ (kWh)</label>
+    <input type="text" id="elec" placeholder="Điện tiêu thụ"><br><br>
+    <button onclick="getElectric()">Tính số điện tiêu thụ</button>
+    <p id="total"></p>
+    <script>
+        function getElectric() {
+            let elec = parseFloat(document.getElementById("elec").value);
+            let total = document.getElementById("total");
+            if (elec <= 100) {
+                total.textContent = "Giá điện là: " + elec * 1600 + " VNĐ";
+            } else if (elec <= 200) {
+                total.textContent = "Giá điện là: " + (100 * 1600 + (elec - 100) * 2000) + " VNĐ";
+            } else if (elec <= 300) {
+                total.textContent = "Giá điện là: " + (100 * 1600 + 100 * 2000 + (elec - 200) * 2500) + " VNĐ";
+            } else if (elec <= 400) {
+                total.textContent = "Giá điện là: " + (100 * 1600 + 100 * 2000 + 100 * 2500 + (elec - 300) * 3000) + " VNĐ";
+            } else if (elec > 400) {
+                total.textContent = "Giá điện là: " + (100 * 1600 + 100 * 2000 + 100 * 2500 + 100 * 3000 + (elec - 400) * 3500) + " VNĐ";
+            }
+        }
+    </script>
+</body>
+
+</html>
